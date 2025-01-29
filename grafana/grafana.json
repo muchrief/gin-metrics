@@ -62,7 +62,7 @@
       "pluginVersion": "7.2.0",
       "targets": [
         {
-          "expr": "rate(gin_request_total[5m])",
+          "expr": "rate(request_total[5m])",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -122,7 +122,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "gin_request_total",
+          "expr": "request_total",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -219,7 +219,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "gin_request_uv_total",
+          "expr": "request_uv_total",
           "interval": "",
           "legendFormat": "{{instance}}",
           "refId": "A"
@@ -315,13 +315,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(gin_request_body_total[5m])",
+          "expr": "rate(request_body_total[5m])",
           "interval": "",
           "legendFormat": "{{instance}}-in",
           "refId": "A"
         },
         {
-          "expr": "rate(gin_response_body_total[5m])",
+          "expr": "rate(response_body_total[5m])",
           "interval": "",
           "legendFormat": "{{instance}}-out",
           "refId": "B"
@@ -419,7 +419,7 @@
       "pluginVersion": "7.2.0",
       "targets": [
         {
-          "expr": "sum by(uri, instance) (gin_uri_request_total)",
+          "expr": "sum by(uri, instance) (uri_request_total)",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -489,7 +489,7 @@
       "strokeWidth": 1,
       "targets": [
         {
-          "expr": "sum by(method, instance) (gin_uri_request_total)",
+          "expr": "sum by(method, instance) (uri_request_total)",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -553,19 +553,19 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum (rate(gin_request_duration_bucket[5m])) by (le, instance))",
+          "expr": "histogram_quantile(0.95, sum (rate(request_duration_bucket[5m])) by (le, instance))",
           "interval": "",
           "legendFormat": "p95",
           "refId": "A"
         },
         {
-          "expr": "histogram_quantile(0.99, sum (rate(gin_request_duration_bucket[5m])) by (le, instance))",
+          "expr": "histogram_quantile(0.99, sum (rate(request_duration_bucket[5m])) by (le, instance))",
           "interval": "",
           "legendFormat": "p99",
           "refId": "B"
         },
         {
-          "expr": "sum (gin_request_duration_sum) / sum(gin_request_duration_count)",
+          "expr": "sum (request_duration_sum) / sum(request_duration_count)",
           "interval": "",
           "legendFormat": "avg",
           "refId": "C"
@@ -669,7 +669,7 @@
       "strokeWidth": 1,
       "targets": [
         {
-          "expr": "sum by(code, instance) (gin_uri_request_total)",
+          "expr": "sum by(code, instance) (uri_request_total)",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -735,7 +735,7 @@
       "pluginVersion": "7.2.0",
       "targets": [
         {
-          "expr": "sum by(uri, instance) (gin_slow_request_total)",
+          "expr": "sum by(uri, instance) (slow_request_total)",
           "format": "time_series",
           "instant": false,
           "interval": "",
